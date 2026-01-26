@@ -1,0 +1,27 @@
+/* Estilo base para el número */
+.resultado-nota {
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Las 3 clases dinámicas que pide el ejercicio */
+.suspenso {
+  color: red;
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+
+.aprobado {
+  color: green;
+  border: 2px solid green;
+  background-color: #e6ffe6;
+}
+
+.sobresaliente {
+  color: blue;
+  border: 2px solid blue;
+  background-color: #e6e6ff;
+}
