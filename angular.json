@@ -72,6 +72,69 @@
           "builder": "@angular/build:unit-test"
         }
       }
+    },
+    "Tutorial-Shop": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/tutorial-shop",
+      "sourceRoot": "projects/tutorial-shop/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/tutorial-shop/src/main.ts",
+            "tsConfig": "projects/tutorial-shop/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/tutorial-shop/public"
+              }
+            ],
+            "styles": [
+              "projects/tutorial-shop/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "Tutorial-Shop:build:production"
+            },
+            "development": {
+              "buildTarget": "Tutorial-Shop:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
     }
   }
 }

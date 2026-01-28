@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h2>Products</h2>
+
+  <div class="row">
+    @for (product of products; track product.id) {
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 p-3 shadow-sm">
+          <h3 [title]="product.name + 'details'" class="text-decoration-none">
+            {{product.name}}
+          </h3>
+          @if (product.description) {
+            <p class="text-mute">{{product.description}}</p>
+          }
+          <button class="btn btn-close" (click)="share()">Share</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
